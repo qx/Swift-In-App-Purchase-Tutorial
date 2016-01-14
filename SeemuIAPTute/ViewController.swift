@@ -24,7 +24,7 @@ class ViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTran
         // Set IAPS
         if(SKPaymentQueue.canMakePayments()) {
             print("IAP is enabled, loading")
-            let productID:NSSet = NSSet(objects: "seemu.iap.addcoins", "seemu.iap.removeads")
+            let productID:NSSet = NSSet(objects: "com.ooooci.purchase.me.coins", "seemu.iap.removeads")
             let request: SKProductsRequest = SKProductsRequest(productIdentifiers: productID as! Set<String>)
             
             request.delegate = self
@@ -52,7 +52,7 @@ class ViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTran
     @IBAction func btnAddCoins(sender: UIButton) {
         for product in list {
             let prodID = product.productIdentifier
-            if(prodID == "seemu.iap.addcoins") {
+            if(prodID == "com.ooooci.purchase.me.coins") {
                 p = product
                 buyProduct()
                 break;
@@ -89,7 +89,7 @@ class ViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTran
     var p = SKProduct()
     
     // seemu.iap.removeads
-    // seemu.iap.addcoins
+    // com.ooooci.purchase.me.coins
     
     func buyProduct() {
         print("buy " + p.productIdentifier)
@@ -128,7 +128,7 @@ class ViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTran
             case "seemu.iap.removeads":
                 print("remove ads")
                 removeAds()
-            case "seemu.iap.addcoins":
+            case "com.ooooci.purchase.me.coins":
                 print("add coins to account")
                 addCoins()
             default:
@@ -157,7 +157,7 @@ class ViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTran
                     case "seemu.iap.removeads":
                         print("remove ads")
                         removeAds()
-                    case "seemu.iap.addcoins":
+                    case "com.ooooci.purchase.me.coins":
                         print("add coins to account")
                         addCoins()
                     default:
